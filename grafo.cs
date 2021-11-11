@@ -4,6 +4,8 @@ public class Grafo
 {
 	public Grafo()
 	{
+		//Prueba Clase Grafo
+
 		int n; // n = cantidad de nodos (cantidad de vertices)
 
 		// int[vertices de origen][vertices de destino]
