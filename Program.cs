@@ -13,6 +13,16 @@ namespace ProyectoDiscretaIIGrafos
         //Cambio prueba Jose Recinos
         static void Main(string[] args)
         {
+            Herramientas herramientas = new Herramientas();
+            Grafo grafo = new Grafo();
+
+            string direccion;
+
+            Console.WriteLine("Ingrese direccion: \n");
+            direccion = Console.ReadLine();
+            direccion = direccion.ToString();
+            grafo.getLista() = herramientas.ObtenerGrafo(direccion);
+
         }
     }
 }
