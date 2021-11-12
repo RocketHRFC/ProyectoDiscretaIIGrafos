@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Grafo
+namespace ProyectoDiscretaIIGrafos
 {
-	public Grafo()
-	{
-		//Prueba Clase Grafo
-
+	public class Grafo
+    {
 		int n; // n = cantidad de nodos (cantidad de vertices)
 
 		// int[vertices de origen][vertices de destino]
@@ -15,9 +17,9 @@ public class Grafo
 		//se define la matriz de tamaño n*n, se inicializa con todo ceros (sin aristas)
 		//0 = no hay arista entre el vertice origen y el vertice destino
 		//1 = si hay arista entre el vertice origen y el vertice destino
-		//la lista se manda como referencia para que se guarden los cambios establecidos dentro de la funcion luego de que esta termine
+		//la lista se manda como referencia para que se guarden los cambios establecidos dentro de la funcion luego de que esta termine		
 		void inicializarLista(ref int[][] lista, int size)
-        {
+		{
 			lista = new int[size][]; // array de tamaño "size"
 
 			for (int i = 0; i < size; i++)
@@ -33,14 +35,22 @@ public class Grafo
 					lista[i][j] = 0;
 				}
 			}
-		};
+		}
 
 		//la lista se m anda como referencia para que se guarden los cambios establecidos dentro de la funcion luego de que esta termine
 		// vOrigen es el vertice de donde se origina la arista
 		// vDestino es el vertice al que llegue la arista
 		void addArista(ref int[][] lista, int vOrigen, int vDestino)
-        {
+		{
 			lista[vOrigen][vDestino] = 1; // 1 simboliza la conexion entre vertice origen y destino creada por la arista
-		};
+		}
+
+		int[][] getLista() // regresa la lista
+		{
+			return ListaAdy;
+		}
+
+		public Grafo() {} //constructor
 	}
 }
+	
