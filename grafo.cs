@@ -50,6 +50,11 @@ namespace ProyectoDiscretaIIGrafos
 			return ListaAdy;
 		}
 
+		void setSize(int size)// declara el numero de vertices
+        {
+			n = size;
+        }
+
 		public Grafo() {} //constructor
 	}
 }
