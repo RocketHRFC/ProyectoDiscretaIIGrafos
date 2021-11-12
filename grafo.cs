@@ -8,7 +8,7 @@ namespace ProyectoDiscretaIIGrafos
 {
 	public class Grafo
     {
-		int n; // n = cantidad de nodos (cantidad de vertices)
+		protected int n; // n = cantidad de nodos (cantidad de vertices)
 
 		// int[vertices de origen][vertices de destino]
 		int[][] ListaAdy; //declaracion de jagged list, servira para crear una lista de adyacencia en forma de matriz
@@ -18,7 +18,7 @@ namespace ProyectoDiscretaIIGrafos
 		//0 = no hay arista entre el vertice origen y el vertice destino
 		//1 = si hay arista entre el vertice origen y el vertice destino
 		//la lista se manda como referencia para que se guarden los cambios establecidos dentro de la funcion luego de que esta termine		
-		void inicializarLista(ref int[][] lista, int size)
+		public void inicializarLista(ref int[][] lista, int size)
 		{
 			lista = new int[size][]; // array de tamaño "size"
 
@@ -32,25 +32,25 @@ namespace ProyectoDiscretaIIGrafos
 			{
 				for (int j = 0; j < size; j++)//recorre vertices destino
 				{
-					lista[i][j] = 0;
+					lista[i][j] = 0; 
 				}
 			}
 		}
 
-		//la lista se m anda como referencia para que se guarden los cambios establecidos dentro de la funcion luego de que esta termine
+		//la lista se manda como referencia para que se guarden los cambios establecidos dentro de la funcion luego de que esta termine
 		// vOrigen es el vertice de donde se origina la arista
 		// vDestino es el vertice al que llegue la arista
-		void addArista(ref int[][] lista, int vOrigen, int vDestino)
+		public void addArista(ref int[][] lista, int vOrigen, int vDestino)
 		{
 			lista[vOrigen][vDestino] = 1; // 1 simboliza la conexion entre vertice origen y destino creada por la arista
 		}
 
-		int[][] getLista() // regresa la lista
+		public ref int[][] getLista() // regresa la lista
 		{
-			return ListaAdy;
+			return ref ListaAdy;
 		}
 
-		void setSize(int size)// declara el numero de vertices
+		public void setSize(int size)// declara el numero de vertices
         {
 			n = size;
         }
