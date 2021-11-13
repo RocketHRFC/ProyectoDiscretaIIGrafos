@@ -9,7 +9,7 @@ namespace ProyectoDiscretaIIGrafos
 	public class Grafo
     {
 		protected int n; // n = cantidad de nodos (cantidad de vertices)
-
+		protected int e = 0; // e = cantidad de arístas
 		// int[vertices de origen][vertices de destino]
 		int[][] ListaAdy; //declaracion de jagged list, servira para crear una lista de adyacencia en forma de matriz
 
@@ -43,6 +43,8 @@ namespace ProyectoDiscretaIIGrafos
 		public void addArista(ref int[][] lista, int vOrigen, int vDestino)
 		{
 			lista[vOrigen][vDestino] = 1; // 1 simboliza la conexion entre vertice origen y destino creada por la arista
+
+			e++;
 		}
 
 		public ref int[][] getLista() // regresa la lista
@@ -52,8 +54,18 @@ namespace ProyectoDiscretaIIGrafos
 
 		public void setSize(int size)// declara el numero de vertices
         {
-			n = size;
+			this.n = size;
         }
+
+		public int GetSize()
+        {
+			return this.n;
+        }
+
+		public int GetAristas()
+		{
+			return this.e;
+		}
 
 		public Grafo() {} //constructor
 	}

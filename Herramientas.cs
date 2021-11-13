@@ -25,7 +25,6 @@ namespace ProyectoDiscretaIIGrafos
                 if(indicelinea == 0)
                 {
                     int size = System.Convert.ToInt32(valores[0]);
-                    //grafo.setSize(size);
                     grafo.inicializarLista(ref grafo.getLista(), size);
                 }
                 else
@@ -35,6 +34,7 @@ namespace ProyectoDiscretaIIGrafos
 
                     
                     grafo.addArista(ref grafo.getLista(), vOrigen, vDestino);
+                    grafo.addArista(ref grafo.getLista(), vDestino, vOrigen);
                 }
 
                 indicelinea++;
