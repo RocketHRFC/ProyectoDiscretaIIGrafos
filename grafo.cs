@@ -12,7 +12,7 @@ namespace ProyectoDiscretaIIGrafos
 		protected int e = 0; // e = cantidad de arístas
 		// int[vertices de origen][vertices de destino]
 		int[][] ListaAdy; //declaracion de jagged list, servira para crear una lista de adyacencia en forma de matriz
-
+		int[] GradosVertices;
 
 		//se define la matriz de tamaño n*n, se inicializa con todo ceros (sin aristas)
 		//0 = no hay arista entre el vertice origen y el vertice destino
@@ -22,9 +22,13 @@ namespace ProyectoDiscretaIIGrafos
 		{
 			lista = new int[size][]; // array de tamaño "size"
 
+
 			for (int i = 0; i < size; i++)
 			{
 				lista[i] = new int[size]; //  cada vertice se le agrega un array de todos los vertices
+
+				this.GradosVertices = new int[size];
+				 
 			}
 
 			// se llena la matriz con ceros (0), se inicializa solo con vertices y sin aristas
@@ -34,6 +38,8 @@ namespace ProyectoDiscretaIIGrafos
 				{
 					lista[i][j] = 0; 
 				}
+
+				setSize(size);
 			}
 		}
 
@@ -55,7 +61,7 @@ namespace ProyectoDiscretaIIGrafos
 				{
 					if(ListaVertices[i][j] == 1)
                     {
-						this.getLista()[i][j] += 1;
+						this.GradosVertices[i] += 1;
                     }
 				}
 			}
@@ -81,7 +87,15 @@ namespace ProyectoDiscretaIIGrafos
 			return this.e;
 		}
 
-		public int[]
+		public int[] GetGradosVertices()
+        {
+			return this.GradosVertices;
+        }
+
+		public void SetAristas()
+        {
+			this.e = e / 2;
+        }
 
 		public Grafo() {} //constructor
 	}

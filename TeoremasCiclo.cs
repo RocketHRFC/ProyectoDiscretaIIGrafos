@@ -13,11 +13,8 @@ namespace ProyectoDiscretaIIGrafos
             int size = grafo.GetSize();
             
             Grafo Vertices_NoAdyacentes= new Grafo();
-            Grafo Grados_Vertice = new Grafo();
 
             Vertices_NoAdyacentes.inicializarLista(ref Vertices_NoAdyacentes.getLista(), size);
-            Grados_Vertice.inicializarLista(ref Grados_Vertice.getLista(), size);
-
 
             for (int i = 0; i < size; i++)
             {
@@ -33,7 +30,22 @@ namespace ProyectoDiscretaIIGrafos
                     } 
                 }
             }
-            Grados_Vertice.GradosVertice(ref Vertices_NoAdyacentes.getLista());
+
+            for(int i = 0; i < size;i++)
+            {
+                for(int j = 0; j < size;j++)
+                {
+                    if(Vertices_NoAdyacentes.getLista()[i][j] == 1)
+                    {
+                        if(grafo.GetGradosVertices()[i] + grafo.GetGradosVertices()[j] < size)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+
+            return true;
         }    
     }
 }

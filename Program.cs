@@ -11,17 +11,23 @@ namespace ProyectoDiscretaIIGrafos
         //Cambio Prueba Hugo Florian
         //Cambio Prueba Samer Aranki
         //Cambio prueba Jose Recinos
+
+        //C:\Users\Rocket55\Desktop\Prueba.txt
         static void Main(string[] args)
         {
             Herramientas herramientas = new Herramientas();
             Grafo grafo = new Grafo();
+            TeoremasCiclo TeoremaOysteinOre = new TeoremasCiclo();
 
             string direccion;
 
             Console.WriteLine("Ingrese direccion: \n");
             direccion = Console.ReadLine();
             direccion = direccion.ToString();
-            grafo.getLista() = herramientas.ObtenerGrafo(direccion);
+            herramientas.ObtenerGrafo(direccion, ref grafo);
+            Console.WriteLine(TeoremaOysteinOre.OysteinOre(ref grafo));
+
+            Console.ReadKey();
 
         }
     }

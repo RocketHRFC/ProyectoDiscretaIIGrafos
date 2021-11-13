@@ -9,7 +9,7 @@ namespace ProyectoDiscretaIIGrafos
 {
     public class Herramientas
     {
-        public int[][] ObtenerGrafo(string path)
+        public void ObtenerGrafo(string path, ref Grafo grafo_archivo)
         {
             Grafo grafo = new Grafo();
             var lector = new StreamReader(File.OpenRead(path));
@@ -36,12 +36,15 @@ namespace ProyectoDiscretaIIGrafos
                     grafo.addArista(ref grafo.getLista(), vOrigen, vDestino);
                     grafo.addArista(ref grafo.getLista(), vDestino, vOrigen);
                 }
-
-                indicelinea++;
-                
+                indicelinea++;   
             }
 
-            return grafo.getLista();
+            grafo.SetAristas();
+
+            grafo.GradosVertice(ref grafo.getLista());
+
+            grafo_archivo = grafo;
+            
         }
     }
 }
