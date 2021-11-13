@@ -47,6 +47,20 @@ namespace ProyectoDiscretaIIGrafos
 			e++;
 		}
 
+		public void GradosVertice(ref int[][] ListaVertices)
+        {
+			for (int i = 0; i < n; i++)
+			{
+				for (int j = 0; j < n; j++)
+				{
+					if(ListaVertices[i][j] == 1)
+                    {
+						this.getLista()[i][j] += 1;
+                    }
+				}
+			}
+		}
+
 		public ref int[][] getLista() // regresa la lista
 		{
 			return ref ListaAdy;
@@ -66,6 +80,8 @@ namespace ProyectoDiscretaIIGrafos
 		{
 			return this.e;
 		}
+
+		public int[]
 
 		public Grafo() {} //constructor
 	}

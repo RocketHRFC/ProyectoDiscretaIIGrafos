@@ -8,55 +8,32 @@ namespace ProyectoDiscretaIIGrafos
 {
     public class TeoremasCiclo
     {
-        public bool Teorema1()
+        public bool OysteinOre(ref Grafo grafo)
         {
-            Grafo grafo = new Grafo();
-
             int size = grafo.GetSize();
-            int naristas = 0;
+            
+            Grafo Vertices_NoAdyacentes= new Grafo();
+            Grafo Grados_Vertice = new Grafo();
 
-            int[][] aristas = new int[grafo.GetAristas()][];
+            Vertices_NoAdyacentes.inicializarLista(ref Vertices_NoAdyacentes.getLista(), size);
+            Grados_Vertice.inicializarLista(ref Grados_Vertice.getLista(), size);
 
-            for(int i = 0; i < size; i++)
+
+            for (int i = 0; i < size; i++)
             {
                 for(int j = 0; j < size; j++)
                 {
-                    if(grafo.getLista()[i][j] == 1)
+                    if (i != j)
                     {
-
-                        if (VerticesSumados(aristas, i, j) == false)
+                        if (grafo.getLista()[i][j] == 0)
                         {
-                            int[] arista = new int[2] { i, j };
-                            aristas[naristas] = arista;
-                            naristas++;
+                            Vertices_NoAdyacentes.addArista(ref Vertices_NoAdyacentes.getLista(), i, j);
+                            Vertices_NoAdyacentes.addArista(ref Vertices_NoAdyacentes.getLista(), j, i);
                         }
-                    }
+                    } 
                 }
             }
-
-        }
-
-        public bool VerticesSumados(int[][] ListaAristas, int V1, int V2)
-        {
-            int size = ListaAristas.Length;
-
-            for(int i = 0; i < size; i++)
-            {
-                for(int j = 0; i < size; j++)
-                {
-                    int[] arista = new int[2] { V1, V2 };
-                    int[] aristap = new int[2] { V2, V1 };
-
-                    if (ListaAristas[i] == arista || ListaAristas[i] == aristap)
-                    {
-                        return true;
-                    }
-                } 
-            }
-
-            return false;
-        }
-
-
+            Grados_Vertice.GradosVertice(ref Vertices_NoAdyacentes.getLista());
+        }    
     }
 }
